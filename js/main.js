@@ -74,10 +74,15 @@ lightbox.addEventListener("click", () => lightbox.close());
 /* ── RSVP ─────────────────────────────────────────────────────── */
 
 /* The site is static, so by default the form opens an email draft in
-   the guest's mail app. See the README for how to connect it to
-   Formspree / Tally / Google Form instead, to receive responses
-   automatically without email. */
+   the guest's mail app. See the README ("Switching to Formspree") for
+   how to connect it to Formspree / Tally / Google Form instead, to
+   receive responses automatically without email.
 
+   Switching to Formspree? Delete the whole block below, from
+   "MAILTO BLOCK — START" to "MAILTO BLOCK — END", nothing else in this
+   file needs to change. */
+
+/* MAILTO BLOCK — START */
 const form = document.getElementById("rsvp-form");
 const note = document.getElementById("rsvp-note");
 
@@ -113,3 +118,4 @@ form.addEventListener("submit", (event) => {
     "Your email app is opening with the RSVP already written: just hit send. Thank you!";
   note.hidden = false;
 });
+/* MAILTO BLOCK — END */

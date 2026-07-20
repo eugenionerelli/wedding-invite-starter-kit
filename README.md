@@ -31,12 +31,57 @@ yours.
 
 ---
 
+## Prerequisites
+
+### Accounts (free, 10 minutes)
+
+- **GitHub** → [github.com/signup](https://github.com/signup). Required —
+  this is where your copy of the site lives and where free hosting comes
+  from. Note the username you choose, it ends up in your site's address.
+- **Cloudflare** *(optional)* → [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) —
+  only if you pick Cloudflare Pages over GitHub Pages in
+  [Going live](#going-live).
+- **Claude or ChatGPT** *(optional)* — only if you want an AI assistant's
+  help, see [Using an AI assistant](#using-an-ai-assistant-optional).
+
+### Tools on your computer
+
+Only needed for the *Quick start* steps below (cloning, previewing, and
+the local editor). If that sounds unfamiliar: it's normal, everyone
+starts there, and each check below takes under a minute.
+
+The **Terminal** is the app where you type these commands. On a Mac:
+press `Cmd + Space`, type "Terminal", press Enter. It looks intimidating
+but you're mostly copying and pasting — nothing is permanent or
+dangerous in what follows.
+
+- **Git** — moves your code to GitHub. Check with `git --version`; if
+  it's missing, a Mac will offer to install it (accept), or get it from
+  [git-scm.com](https://git-scm.com/downloads). Then, once, introduce
+  yourself: `git config --global user.name "Your Name"` and
+  `git config --global user.email "you@email.com"`.
+- **Python 3** — runs the local preview server and the visual editor.
+  Check with `python3 --version`. **Already installed on every Mac.** On
+  Windows, get it from [python.org/downloads](https://python.org/downloads)
+  — during setup, tick **"Add python.exe to PATH"**, easy to miss and the
+  most common cause of a "command not found" error afterward.
+- **Node.js** *(only for the local visual editor)* — check with
+  `node --version`; `v20` or higher is fine. If missing, download the
+  **LTS** version from [nodejs.org](https://nodejs.org) and install it —
+  a normal installer, like any other app.
+
+If any command above says "command not found" after installing, close
+and reopen the Terminal (it doesn't always notice new software right
+away).
+
+---
+
 ## Quick start
 
-1. **Get your own copy.** On this repo's GitHub page, click the green
-   **"Use this template"** button (not "Fork" — that keeps you linked to
-   the original; a template gives you a clean, independent copy). Name it
-   whatever you like.
+1. **Get your own copy.** Signed into your GitHub account, on this repo's
+   page click the green **"Use this template"** button (not "Fork" —
+   that keeps you linked to the original; a template gives you a clean,
+   independent copy). Name it whatever you like.
 
 2. **Clone it to your computer:**
 
@@ -54,8 +99,8 @@ yours.
    Open <http://localhost:8000> — that's the starting point.
 
 4. **Edit it.** Two ways, pick whichever suits you (details below):
-   - **Visually**, in the local editor (recommended, nothing to install
-     beyond Node.js)
+   - **Visually**, in the local editor (recommended — needs Node.js from
+     [Prerequisites](#prerequisites) above, nothing else)
    - **By hand**, in `index.html` / `css/style.css` — every file has
      `CUSTOMIZE` comments marking what to change
 
@@ -104,11 +149,19 @@ for that word in your editor and you'll find every spot.
 
 ### The Google Maps buttons
 
-The part guests actually use. Two ways to get a link:
+The part guests actually use. In `index.html`, each venue has a line like
+this — the link is the part between `href="` and the next `"`:
+
+```html
+<a class="btn-location" href="https://www.google.com/maps/search/?api=1&query=Kew+Gardens+London" target="_blank" rel="noopener">Show location</a>
+```
+
+Replace everything between those two quotes with your own link. Two ways
+to get one:
 
 1. **Easiest** — search the venue on
    [maps.google.com](https://maps.google.com) → **Share** → **Copy
-   link**, paste it into the button's `href`.
+   link**, paste it in place of the URL above.
 2. **By hand** — this format always works and never expires:
    `https://www.google.com/maps/search/?api=1&query=VENUE+NAME+CITY`
    (spaces become `+`).
@@ -131,9 +184,11 @@ Free alternatives that collect responses automatically:
 
 - **[Formspree](https://formspree.io)** (50 submissions/month free):
   create a form, you get a URL like `https://formspree.io/f/abcd1234`;
-  add `action="that URL"` and `method="POST"` to the `<form>` in
-  `index.html`, and remove the RSVP block at the bottom of `js/main.js`.
-  Responses land in your inbox.
+  add `action="that URL"` and `method="POST"` to the `<form id="rsvp-form">`
+  tag in `index.html`. Then in `js/main.js`, delete everything between the
+  comments `/* MAILTO BLOCK — START */` and `/* MAILTO BLOCK — END */`
+  (search for those two lines — they mark exactly what to remove, nothing
+  else in the file needs to change). Responses land in your inbox.
 - **Google Form / [Tally](https://tally.so)**: build the form there and
   either link to it with a button, or embed it with an `<iframe>`. No
   code, responses land in a spreadsheet.
@@ -263,8 +318,9 @@ for `webstudio connect` and `webstudio mcp`.
 
 | Problem | Usual cause |
 |---|---|
+| "command not found" for `git`/`python3`/`node` | It's not installed, or (Windows) wasn't added to PATH — see [Prerequisites](#prerequisites), then close and reopen the Terminal |
 | Site with no styling after publishing | Missing `.nojekyll` — see above |
-| "Permission denied" pushing to GitHub | Wrong username, or you need a personal access token instead of a password |
+| "Permission denied" pushing to GitHub | Wrong username, or GitHub needs a **personal access token** instead of your password since 2021 — create one at [github.com/settings/tokens](https://github.com/settings/tokens) → *Generate new token (classic)* → tick `repo` → paste it in place of your password when asked |
 | Local editor shows a blank canvas | Check the terminal running `server.py` for an error; make sure `npm install` finished inside `editor/` |
 | A save "succeeded" but something stopped working | Read the warning in the editor's status bar — it names exactly which id/class went missing |
 | Countdown stuck at "–" | `WEDDING_DATE` in `js/main.js` is malformed, or in the past |
