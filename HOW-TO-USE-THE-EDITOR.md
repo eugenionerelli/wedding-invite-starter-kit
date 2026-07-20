@@ -1,14 +1,66 @@
 # How to use the visual editor
 
-The complete guide to editing your site by dragging, clicking, and typing —
-no code required. This covers **everything** the editor can do: text,
-colors, fonts, spacing, photos, layout, and how to check your work on
-mobile before you publish.
+This is where **you** work: clicking, typing, dragging, and deciding what
+looks right. Your AI assistant handles everything technical — if you
+haven't set one up yet, do that first:
+**[AI-SETUP.md](AI-SETUP.md)**.
+
+The editor itself is [GrapesJS](https://github.com/GrapesJS/grapesjs) —
+free, open source, and running entirely on your own computer. No account,
+no subscription, no company hosting your work-in-progress. It opens your
+*actual* files, so what you see is genuinely the site, not a preview of
+one.
 
 Every interaction described here was tested for real — not assumed —
 against this exact toolset (`grapesjs@0.22.16`), on a MacBook Pro (M4,
 16GB RAM, macOS 26.5). If your machine is a similar or newer Apple Silicon
 Mac, this will run at least as smoothly.
+
+---
+
+## The division of labor
+
+The single most useful thing to understand about this whole project:
+
+> **The editor is for taste. The assistant is for everything else.**
+
+You use the editor because looking at something and thinking *"that's too
+big"* is instant, and describing it in words is not. You use the
+assistant because setting up hosting, writing a new section, or fixing a
+mobile layout bug is work you have no reason to learn.
+
+### Do it yourself, in the editor
+
+Fast, visual, immediate — describing these to an assistant is slower than
+just doing them:
+
+- Your names, your story, your dates, venue names
+- Text sizes, weights, letter spacing
+- Colors of text and most backgrounds
+- Spacing and padding — nudging until it breathes right
+- Swapping photos in the gallery
+- Reordering sections, duplicating a schedule event
+- Checking how it all looks on a phone
+
+### Hand it to your assistant
+
+Either the editor genuinely can't, or it'd be tedious:
+
+| What | Why not the editor |
+|---|---|
+| **Changing the typefaces** | The font dropdown only offers generic system fonts — the four Google Fonts this design uses aren't in it (see [the note below](#changing-colors-fonts-and-spacing--the-style-manager)) |
+| **Border/background color on buttons, chips, the divider, the footer** | 7 specific rules in this project use a CSS shorthand the editor drops on import — documented precisely in [`editor/README.md`](editor/README.md) |
+| **Anything in `js/main.js`** | The countdown, the RSVP form, the photo lightbox. The editor deliberately doesn't touch this file |
+| **Anything in the `<head>`** | Page title, the WhatsApp link preview, fonts loaded |
+| **A genuinely new section** | The editor's blocks are generic; an assistant writes one that matches this design's structure and spacing |
+| **"It looks wrong only on mobile"** | Needs a media query — an assistant fixes this in a sentence |
+| **Publishing, hosting, domains, git** | All of it |
+
+### The rule of thumb
+
+**Try it in the editor first. If it fights you for more than a minute,
+stop and ask.** That minute is the whole heuristic — you'll be right
+almost every time, and you're never stuck for long either way.
 
 ---
 
@@ -223,6 +275,109 @@ files. The status line tells you what happened:
 
 Saving **never publishes anything** — see the main [README](README.md#going-live)
 for that separate, deliberate step.
+
+Once you've saved and you're happy, publishing is one sentence to your
+assistant: *"publish it."*
+
+---
+
+## How far to push your assistant
+
+Most people ask for far less than they could get. The limit isn't what
+these tools can build — it's what you think to ask for. So here's a
+concrete ladder, from "obviously yes" to "you probably didn't realize
+this was on the table."
+
+### The things the editor can't do
+
+One sentence each. These are the everyday handoffs:
+
+> "Change the typeface pairing to something warmer and more romantic —
+> keep it to two Google Fonts, and show me two options before you pick."
+
+> "The 'Show location' buttons should have a soft gold border instead of
+> black. Note that `editor/README.md` explains why the visual editor
+> can't do this one."
+
+> "On my phone the schedule times feel cramped against the venue names.
+> Fix the spacing on mobile only — don't change the desktop layout."
+
+### New things the site doesn't have yet
+
+A paragraph each, and genuinely useful for a wedding:
+
+> "Add an **'Add to calendar'** button under the ceremony time, so guests
+> can save it to their phone in one tap."
+
+> "Add a **travel and accommodation** section after the schedule: two or
+> three hotel suggestions with links, and a note about parking. Match the
+> existing design exactly."
+
+> "Change the RSVP so responses land in a **spreadsheet** instead of my
+> email. Walk me through whatever I need to sign up for — the README
+> mentions Formspree and Tally as options."
+
+> "Add a **dietary requirements** field and a **song request** field to
+> the RSVP form."
+
+> "Put a **soft password page** in front of the site — nothing serious,
+> just a word printed on the paper invitations, so it isn't wide open to
+> anyone who finds the link."
+
+> "Some of our guests don't speak English. Add a **language toggle** with
+> a translated version of all the text."
+
+### The ambitious end
+
+This is where it stops feeling like a tool and starts feeling like
+having a designer on call:
+
+> "I've decided black-tie is wrong for us. **Redesign the whole thing**
+> as a warm Mediterranean garden wedding — terracotta, olive, hand-drawn
+> feel. Keep every section and all the working parts, change the entire
+> visual language. Show me the cover first before doing the rest."
+
+That works because the design lives almost entirely in one stylesheet.
+A total aesthetic change is a genuinely reasonable request here, and it
+costs you a conversation rather than a rebuild.
+
+Others worth knowing you can ask for:
+
+> "Go through the whole site for **accessibility** — colour contrast,
+> alt text, keyboard navigation — and fix what's wrong. Explain what you
+> found in plain language."
+
+> "Our photos are slowing the page down. **Optimise them** and make the
+> gallery load faster, without visibly reducing quality."
+
+> "Act as a **picky design critic** for a moment. Look at the live site
+> on both desktop and mobile and tell me the five things you'd change,
+> ranked. Don't change anything yet — just tell me."
+
+That last one is underrated. These assistants are genuinely good at
+critique, and it costs you nothing to ask before you commit.
+
+### So where's the actual ceiling?
+
+Not where you'd expect. For a static site like this, an assistant can
+realistically build essentially anything you can describe.
+
+The real constraints are:
+
+1. **Your ability to describe what you want.** Vague in, vague out. This
+   is why the editor matters — it's often faster to *show* yourself what
+   you want by trying it, than to find words for it.
+2. **Your ability to tell whether it's right.** Which is why every
+   ambitious request should end with *"…and show me."*
+3. **Genuinely dynamic features.** Anything needing a real server —
+   user accounts, a live seating-chart editor, payments. Possible, but
+   it stops being a free static site. For a wedding invite you almost
+   certainly don't want to cross that line.
+
+**A practical ceiling worth respecting:** don't chain five ambitious
+requests without looking in between. Not because it'll break, but
+because if something goes subtly wrong on step two, you want to notice
+before it's baked into steps three through five.
 
 ---
 

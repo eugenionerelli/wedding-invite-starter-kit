@@ -8,26 +8,44 @@ buttons, a photo gallery, and an RSVP form.
 files you can open and edit, made to run on GitHub Pages or Cloudflare
 Pages.
 
-**Live demo of this exact kit:** you're looking at the placeholder
-content (Emma & James) — see [Quick start](#quick-start) below to make it
-yours.
+**No coding required — and no learning to code either.** An AI assistant
+does the technical work; you use a visual editor for the design. Two
+guides, in order: **[AI-SETUP.md](AI-SETUP.md)** then
+**[HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md)**.
+
+The placeholder content you'll see (Emma & James) is there to be
+replaced with yours.
 
 ---
 
-## 📝 The main thing: editing your site visually
+## How this works: two steps, in this order
 
-This kit includes a **local visual editor** — click on things, type,
-drag, done. No account, no cloud service, nothing to sign up for: it
-runs entirely on your own computer and edits your real files directly.
+**You are not going to learn web development to do this.** The approach
+here is deliberate: an AI assistant does every technical thing, and you
+spend your time on the part that actually needs you — deciding what it
+should look like.
 
-**→ [HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md) — the complete,
-tested guide.** Selecting things, editing text, changing colors and
-fonts, swapping photos, checking mobile, saving — all of it, with every
-interaction verified against this exact toolset before being written
-down, not assumed.
+### 1️⃣ Set up an AI assistant → **[AI-SETUP.md](AI-SETUP.md)**
 
-Everything else in this README (accounts, publishing, going live) is
-the supporting setup around that one guide.
+Claude Code or Codex (~$20/month, one month is enough). It installs
+what's missing, sets up the site, publishes it online, and handles
+anything technical you hit later. There's a copy-paste first message in
+that guide that takes you from zero to a live website.
+
+### 2️⃣ Make it yours → **[HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md)**
+
+A **visual editor that runs on your own computer** — click, type, drag.
+Free and open source ([GrapesJS](https://github.com/GrapesJS/grapesjs)),
+no account, no subscription, editing your real files directly. This is
+where you do the design.
+
+That guide also covers **how far you can push your assistant** — with
+concrete examples, because most people ask for far less than they could
+get.
+
+> Everything below is reference material. If you've read those two
+> guides, you can mostly ignore the rest — or better, point your
+> assistant at it when a question comes up.
 
 ---
 
@@ -35,7 +53,8 @@ the supporting setup around that one guide.
 
 ```
 .
-├── HOW-TO-USE-THE-EDITOR.md → the complete visual-editing guide — start here
+├── AI-SETUP.md              → step 1: your AI assistant does the technical part
+├── HOW-TO-USE-THE-EDITOR.md → step 2: the visual editor, and how far to push AI
 ├── index.html        → all the content (names, text, times, venues, photos)
 ├── css/style.css      → colors, fonts, spacing (the design)
 ├── css/edited.css      → written by the local editor — don't edit by hand
@@ -49,51 +68,6 @@ the supporting setup around that one guide.
 
 ---
 
-## Prerequisites
-
-### Accounts (free, 10 minutes)
-
-- **GitHub** → [github.com/signup](https://github.com/signup). Required —
-  this is where your copy of the site lives and where free hosting comes
-  from. Note the username you choose, it ends up in your site's address.
-- **Cloudflare** *(optional)* → [dash.cloudflare.com/sign-up](https://dash.cloudflare.com/sign-up) —
-  only if you pick Cloudflare Pages over GitHub Pages in
-  [Going live](#going-live).
-- **Claude or ChatGPT** *(optional)* — only if you want an AI assistant's
-  help, see [Using an AI assistant](#using-an-ai-assistant-optional).
-
-### Tools on your computer
-
-Only needed for the *Quick start* steps below (cloning, previewing, and
-the local editor). If that sounds unfamiliar: it's normal, everyone
-starts there, and each check below takes under a minute.
-
-The **Terminal** is the app where you type these commands. On a Mac:
-press `Cmd + Space`, type "Terminal", press Enter. It looks intimidating
-but you're mostly copying and pasting — nothing is permanent or
-dangerous in what follows.
-
-- **Git** — moves your code to GitHub. Check with `git --version`; if
-  it's missing, a Mac will offer to install it (accept), or get it from
-  [git-scm.com](https://git-scm.com/downloads). Then, once, introduce
-  yourself: `git config --global user.name "Your Name"` and
-  `git config --global user.email "you@email.com"`.
-- **Python 3** — runs the local preview server and the visual editor.
-  Check with `python3 --version`. **Already installed on every Mac.** On
-  Windows, get it from [python.org/downloads](https://python.org/downloads)
-  — during setup, tick **"Add python.exe to PATH"**, easy to miss and the
-  most common cause of a "command not found" error afterward.
-- **Node.js** *(only for the local visual editor)* — check with
-  `node --version`; `v20` or higher is fine. If missing, download the
-  **LTS** version from [nodejs.org](https://nodejs.org) and install it —
-  a normal installer, like any other app.
-
-If any command above says "command not found" after installing, close
-and reopen the Terminal (it doesn't always notice new software right
-away).
-
----
-
 ## Quick start
 
 1. **Get your own copy.** Signed into your GitHub account, on this repo's
@@ -101,59 +75,60 @@ away).
    that keeps you linked to the original; a template gives you a clean,
    independent copy). Name it whatever you like.
 
-2. **Clone it to your computer:**
+2. **Set up your AI assistant** → **[AI-SETUP.md](AI-SETUP.md)**, then
+   hand it the copy-paste first message in that guide. It downloads the
+   project, installs anything missing, publishes the site, and gives you
+   the web address.
 
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-   cd YOUR-REPO-NAME
-   ```
+3. **Open the visual editor and make it yours** →
+   **[HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md)**.
 
-3. **Look at it right away**, before changing anything:
+4. **Say "publish it"** whenever you want the live site updated.
 
-   ```bash
-   python3 -m http.server 8000
-   ```
-
-   Open <http://localhost:8000> — that's the starting point.
-
-4. **Edit it.** Two ways, pick whichever suits you (details below):
-   - **Visually**, in the local editor (recommended — needs Node.js from
-     [Prerequisites](#prerequisites) above, nothing else)
-   - **By hand**, in `index.html` / `css/style.css` — every file has
-     `CUSTOMIZE` comments marking what to change
-
-5. **Publish it** — see [Going live](#going-live).
-
-That's the whole loop. Everything past this point is detail and options.
+That's the whole loop.
 
 ---
 
-## Editing visually — the local editor
+## Reference: what this actually needs
+
+**You can skip this section.** Your assistant checks and installs all of
+it in step 2 — it's here so you know what's on your machine, and for the
+occasional moment when something says "command not found."
+
+- **A GitHub account** → [github.com/signup](https://github.com/signup).
+  Free. This is where your site lives and where the free hosting comes
+  from; your username ends up in the web address.
+- **Git** — moves your files to GitHub. `git --version` to check; a Mac
+  offers to install it, or [git-scm.com](https://git-scm.com/downloads).
+- **Python 3** — runs the local preview and the visual editor.
+  `python3 --version` to check. **Already on every Mac.** On Windows,
+  from [python.org/downloads](https://python.org/downloads) — tick
+  **"Add python.exe to PATH"** during setup, which is easy to miss and
+  the usual cause of "command not found" afterwards.
+- **Node.js** — needed by the visual editor and by the assistants
+  themselves. `node --version`; v20 or higher. Otherwise the **LTS**
+  installer from [nodejs.org](https://nodejs.org).
+
+> After installing anything, **close and reopen the Terminal** — it
+> doesn't always notice new software right away.
+
+### Running things by hand, if you'd rather
 
 ```bash
-cd editor
-npm install    # first time only
-cd ..
-python3 editor/server.py
+python3 -m http.server 8000     # preview the site → localhost:8000
+
+cd editor && npm install && cd ..   # once
+python3 editor/server.py            # the visual editor → 127.0.0.1:8767/editor/
 ```
-
-Open **<http://127.0.0.1:8767/editor/>**. It's the free, open-source
-library [GrapesJS](https://github.com/GrapesJS/grapesjs), loading your
-actual files, running entirely on your own computer.
-
-**→ Full guide: [HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md)** —
-how to select things, edit text, change colors and fonts, swap photos,
-check mobile, and what the save button actually does (short version:
-writes local files, never publishes — that stays a separate, deliberate
-step below).
 
 ---
 
-## Editing by hand
+## Reference: how the pieces work
 
-Every file that has content to customize is marked with a `CUSTOMIZE`
-comment: names, date, your story, the schedule, RSVP deadline. Search
-for that word in your editor and you'll find every spot.
+**Also skippable.** This is the "what's under the hood" section — useful
+if you're curious, and useful to point your assistant at
+(*"the README explains the RSVP options, have a look"*). Every file has
+`CUSTOMIZE` comments marking the spots that are meant to be changed.
 
 ### The Google Maps buttons
 
@@ -219,6 +194,11 @@ update the names in `style.css`.
 
 ## Going live
 
+> **Or just say "publish it."** Your assistant does all of this — it's
+> exactly the kind of fiddly, one-time setup worth handing over. What
+> follows is here so you know what's happening, and for the day you want
+> to do it yourself.
+
 ### Option A — Cloudflare Pages (simplest, nicest URL)
 
 No commands needed.
@@ -283,42 +263,26 @@ domains*; on GitHub Pages: repo Settings → Pages → *Custom domain*).
 
 ---
 
-## Using an AI assistant (optional)
+## Why this particular toolchain
 
-Everything above works with zero AI involvement — every step is plain
-files and copy-paste commands. If you'd rather describe changes in
-words and have something else make them, either works well with this
-project because it's just files and standard tools, nothing proprietary:
+In case you're wondering whether there's something better out there —
+these were the alternatives, and why they didn't make the cut:
 
-| | Cost (verified July 2026 — check current pricing) | Includes |
-|---|---|---|
-| **Claude Pro** | ~$20/month | Claude Code |
-| **ChatGPT Plus** | ~$20/month | Codex |
+- **[GrapesJS](https://github.com/GrapesJS/grapesjs)** *(what this kit
+  uses)* — open source, free forever, runs on your own machine, and
+  crucially **edits an existing site** rather than making you rebuild it.
+  Nobody else's servers hold your work.
+- **Webstudio** — a genuinely nicer canvas, and free to use. But it
+  **can't import an existing site**: you'd rebuild this design from a
+  blank page inside their tool, then export it back out. Worth a look if
+  you ever start something from scratch; not worth it here.
+- **Framer / Webflow** — polished, and popular for good reason, but
+  built around their own paid hosting. Getting a site *out* of them and
+  onto free hosting ranges from awkward to impossible.
 
-One month is enough to finish a site like this — cancel after.
-Sources: [claude.com/pricing](https://claude.com/pricing) ·
-[developers.openai.com/codex/pricing](https://developers.openai.com/codex/pricing).
-**Higher tiers ($100–200/month) are not needed** for a project this size.
-
----
-
-## An alternative: Webstudio
-
-[Webstudio](https://webstudio.is) is a different kind of tool worth
-knowing about: a richer drag-and-drop canvas with its own hosting-free
-export, and — unusually — an official way for an AI coding assistant to
-operate it directly (`webstudio connect claude` / `webstudio connect
-codex`). The tradeoff versus the local editor in this kit: **Webstudio
-can't import an existing site** — you rebuild it from a blank canvas
-inside their tool, rather than editing these files directly. It also
-needs a free account (the free "Hobby" tier is genuinely enough — no
-paid plan required, verified against their pricing page).
-
-Not set up in this starter kit, since the local editor above already
-covers "edit visually, no account" without the rebuild-from-scratch
-step. If you want to try it anyway, the mechanics are the same
-regardless of whose site you start from — search Webstudio's own docs
-for `webstudio connect` and `webstudio mcp`.
+The deciding factor was ownership: this kit is plain HTML and CSS, so
+your assistant can change absolutely anything in it, and no company can
+change the terms on a website you've already sent to two hundred people.
 
 ---
 
@@ -326,7 +290,7 @@ for `webstudio connect` and `webstudio mcp`.
 
 | Problem | Usual cause |
 |---|---|
-| "command not found" for `git`/`python3`/`node` | It's not installed, or (Windows) wasn't added to PATH — see [Prerequisites](#prerequisites), then close and reopen the Terminal |
+| "command not found" for `git`/`python3`/`node` | It's not installed, or (Windows) wasn't added to PATH — see [what this actually needs](#reference-what-this-actually-needs), then close and reopen the Terminal |
 | Site with no styling after publishing | Missing `.nojekyll` — see above |
 | "Permission denied" pushing to GitHub | Wrong username, or GitHub needs a **personal access token** instead of your password since 2021 — create one at [github.com/settings/tokens](https://github.com/settings/tokens) → *Generate new token (classic)* → tick `repo` → paste it in place of your password when asked |
 | Local editor shows a blank canvas | Check the terminal running `server.py` for an error; make sure `npm install` finished inside `editor/` |
@@ -334,8 +298,10 @@ for `webstudio connect` and `webstudio mcp`.
 | Countdown stuck at "–" | `WEDDING_DATE` in `js/main.js` is malformed, or in the past |
 | Blank page | The main file must be named exactly `index.html` |
 
-If none of that explains it, and you're using an AI assistant: paste
-**the exact error message** — that's where they're most useful.
+**Honestly, the fastest fix for any of these:** paste the exact error
+message to your assistant and let it sort it out. That's precisely the
+kind of thing it's good at, and precisely the kind of thing not worth
+your evening.
 
 ---
 

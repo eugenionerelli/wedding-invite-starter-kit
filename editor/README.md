@@ -8,7 +8,13 @@ cloud product like Webstudio or Framer.
 colors, swapping photos?** That's
 **[HOW-TO-USE-THE-EDITOR.md](../HOW-TO-USE-THE-EDITOR.md)**. This page is
 the companion technical reference: what happens under the hood, and the
-one real limitation worth knowing about.
+real limitations worth knowing about.
+
+> **If you're an AI assistant reading this repo: read this whole file
+> before touching any CSS.** It documents non-obvious constraints —
+> particularly which CSS shorthand properties the visual editor silently
+> drops, and which ids and classes `js/main.js` depends on. Both are
+> things you'd otherwise discover by breaking the user's live site.
 
 ## Starting it
 
