@@ -14,17 +14,35 @@ yours.
 
 ---
 
+## 📝 The main thing: editing your site visually
+
+This kit includes a **local visual editor** — click on things, type,
+drag, done. No account, no cloud service, nothing to sign up for: it
+runs entirely on your own computer and edits your real files directly.
+
+**→ [HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md) — the complete,
+tested guide.** Selecting things, editing text, changing colors and
+fonts, swapping photos, checking mobile, saving — all of it, with every
+interaction verified against this exact toolset before being written
+down, not assumed.
+
+Everything else in this README (accounts, publishing, going live) is
+the supporting setup around that one guide.
+
+---
+
 ## What's in here
 
 ```
 .
+├── HOW-TO-USE-THE-EDITOR.md → the complete visual-editing guide — start here
 ├── index.html        → all the content (names, text, times, venues, photos)
 ├── css/style.css      → colors, fonts, spacing (the design)
 ├── css/edited.css      → written by the local editor — don't edit by hand
 ├── js/main.js         → countdown, animations, RSVP form
 ├── assets/img/        → (empty) put your own photos here
 ├── editor/            → local visual editor (GrapesJS) — no account needed
-│   └── README.md        → how it works, and one real limitation to know about
+│   └── README.md        → technical reference: how it works, real limitations
 └── scripts/
     └── publish.sh       → commit + push, with a confirmation step
 ```
@@ -114,30 +132,20 @@ That's the whole loop. Everything past this point is detail and options.
 
 ```bash
 cd editor
-npm install
+npm install    # first time only
 cd ..
 python3 editor/server.py
 ```
 
-Open **<http://127.0.0.1:8767/editor/>**. It loads your actual
-`index.html` and `css/style.css` — not a copy — into a drag-and-drop
-canvas. Change text, colors, layout, click **"Save to project"**, and
-the files update on disk.
+Open **<http://127.0.0.1:8767/editor/>**. It's the free, open-source
+library [GrapesJS](https://github.com/GrapesJS/grapesjs), loading your
+actual files, running entirely on your own computer.
 
-This is a genuinely local tool: no account, no cloud service, nothing
-sent anywhere. It's the free, open-source library [GrapesJS](https://github.com/GrapesJS/grapesjs)
-running in a page your own computer serves to itself.
-
-**One thing worth knowing before you start:** GrapesJS has a specific,
-narrow limitation around how it imports certain CSS shorthand
-properties — it's documented with the exact details in
-[editor/README.md](editor/README.md), along with why it doesn't
-actually put anything at risk (short version: edits layer on top of the
-original stylesheet, they never replace it). Worth a two-minute read
-before your first save.
-
-Saving **never publishes anything** — it only writes local files. You
-decide when to go live, with the step in [Going live](#going-live).
+**→ Full guide: [HOW-TO-USE-THE-EDITOR.md](HOW-TO-USE-THE-EDITOR.md)** —
+how to select things, edit text, change colors and fonts, swap photos,
+check mobile, and what the save button actually does (short version:
+writes local files, never publishes — that stays a separate, deliberate
+step below).
 
 ---
 

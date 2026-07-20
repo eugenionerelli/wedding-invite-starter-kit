@@ -58,6 +58,18 @@ async function loadCurrentSite() {
         "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Julius+Sans+One&family=Karla:wght@300;400;500&family=Pinyon+Script&display=swap",
       ],
     },
+    assetManager: {
+      // Double-click any photo in the canvas to swap it: this makes
+      // "drop a new file here" actually save a real file in assets/img/
+      // via /upload-asset. Without this block, GrapesJS's default
+      // behavior is to embed uploaded photos as Base64 straight into
+      // index.html — technically works, but bloats the page badly for
+      // anything bigger than a tiny icon.
+      upload: "/upload-asset",
+      uploadName: "file",
+      multiUpload: false,
+      autoAdd: true,
+    },
     plugins: presetPlugin ? [presetPlugin] : [],
     pluginsOpts: presetPlugin
       ? { [presetPlugin]: {} }
