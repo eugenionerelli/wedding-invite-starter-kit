@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+Icon?
+
+# Editor dependencies — reinstall with: cd editor && npm install
+editor/node_modules/
+
+# If you ever add Webstudio (see the README's "alternatives" section),
+# its share link is a credential and must never be committed.
+.webstudio.json
+webstudio.config.json
+.mcp.json
+.cursor/mcp.json
+.env
+.env.*

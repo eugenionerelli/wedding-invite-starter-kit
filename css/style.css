@@ -1,0 +1,563 @@
+/* ═══════════════════════════════════════════════════════════════
+   WEDDING INVITE — stylesheet
+   "Black tie" style: warm ivory paper, dark ink, thin and airy
+   typography, plenty of breathing room.
+   CUSTOMIZE: colors and fonts are all below, in :root.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Palette */
+  --paper: #f6f4ef;        /* ivory background */
+  --ink: #171716;          /* main text */
+  --ink-soft: #55544f;
+  --line: rgba(23, 23, 22, 0.28);
+  --dark: #2e2e2b;         /* confirm button */
+
+  /* Fonts (loaded from Google Fonts in index.html) */
+  --font-display: "Julius Sans One", sans-serif;   /* names and uppercase titles */
+  --font-serif: "Cormorant Garamond", Georgia, serif; /* body text */
+  --font-script: "Pinyon Script", cursive;          /* calligraphic accents */
+  --font-sans: "Karla", Helvetica, sans-serif;      /* labels and buttons */
+}
+
+/* ── Base ─────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Subtle "paper" texture over the whole page */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.54 0 0 0 0 0.5 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+img { max-width: 100%; display: block; }
+
+section { padding: 5.5rem 1.5rem; }
+
+/* ── Cover ────────────────────────────────────────────────────── */
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 3rem 1rem 4.5rem;
+}
+
+/* Monogram with overlapping initials */
+.monogram {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1;
+  letter-spacing: 0;
+  animation: appear 1.8s ease both;
+}
+.monogram .mono-a { display: inline-block; }
+.monogram .mono-b {
+  display: inline-block;
+  font-family: var(--font-script);
+  font-size: 2.9rem;
+  margin-left: -0.55rem;
+  position: relative;
+  top: 0.55rem;
+}
+
+.hero-names { animation: appear 2.2s 0.3s ease both; }
+
+.hero-names h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 7.5vw, 5.2rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.15;
+}
+
+.hero-names .amp {
+  font-family: var(--font-script);
+  text-transform: none;
+  font-size: 0.72em;
+  margin: 0 0.08em;
+  position: relative;
+  top: 0.08em;
+}
+
+.hero-date {
+  margin: 1.6rem 0 0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(1.15rem, 2.6vw, 1.6rem);
+  letter-spacing: 0.45em;
+  text-indent: 0.45em; /* offsets the trailing letter-spacing to stay centered */
+}
+
+/* Scroll invitation: a thin animated vertical line */
+.scroll-hint {
+  display: block;
+  width: 1px;
+  height: 4rem;
+  overflow: hidden;
+}
+.scroll-hint span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: var(--ink);
+  animation: flow 2.4s ease-in-out infinite;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes flow {
+  0%   { transform: translateY(-100%); }
+  55%  { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+
+/* ── Scroll-triggered reveal animation ───────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 1.1s ease, transform 1.1s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Our story ────────────────────────────────────────────────── */
+
+.story {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+}
+
+.story p { margin: 0 0 1.6rem; }
+
+.story-claim {
+  font-style: normal;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  letter-spacing: 0.22em;
+  margin-top: 2.8rem;
+}
+
+/* ── Calligraphic titles ("not long now...", "our day...") ── */
+
+.script-title {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  text-align: center;
+  margin: 0 0 3rem;
+}
+
+/* ── Countdown ────────────────────────────────────────────────── */
+
+.countdown { text-align: center; }
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1.2rem, 5vw, 3.5rem);
+  flex-wrap: wrap;
+}
+
+.cd-box { min-width: 4.5rem; }
+
+.cd-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.cd-label {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ── Schedule ─────────────────────────────────────────────────── */
+
+.schedule { text-align: center; }
+
+.event { max-width: 34rem; margin: 0 auto; }
+
+.event-time {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  letter-spacing: 0.12em;
+  margin: 0 0 0.6rem;
+}
+
+.event-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.05rem, 2.4vw, 1.35rem);
+  letter-spacing: 0.28em;
+  margin: 0 0 1.1rem;
+}
+
+.event-venue {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.85rem;
+  margin: 0 0 0.2rem;
+}
+
+.event-address {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+}
+
+/* "Show location" button (links to Google Maps) */
+.btn-location {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 0.85em 1.8em 0.85em calc(1.8em + 0.32em);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+.btn-location:hover,
+.btn-location:focus-visible {
+  background-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Thin vertical line between events */
+.divider {
+  width: 1px;
+  height: 4.5rem;
+  background: var(--line);
+  margin: 3rem auto;
+}
+
+.dress-code {
+  margin: 4.5rem 0 0;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+.dress-code em {
+  font-family: var(--font-script);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 1.6rem;
+  color: var(--ink);
+  margin-left: 0.3rem;
+}
+
+/* ── Gallery ──────────────────────────────────────────────────── */
+
+.gallery { max-width: 68rem; margin: 0 auto; }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: saturate(0.82);
+  cursor: zoom-in;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+.gallery-grid img:hover { filter: saturate(1); }
+
+.gallery-credit {
+  text-align: center;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.68rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-top: 1.6rem;
+}
+
+/* Lightbox */
+#lightbox {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 60rem);
+  max-height: 88vh;
+}
+#lightbox::backdrop { background: rgba(15, 15, 14, 0.88); }
+#lightbox img {
+  max-width: 100%;
+  max-height: 88vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
+
+/* ── RSVP ─────────────────────────────────────────────────────── */
+
+.rsvp {
+  max-width: 34rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rsvp-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(1.3rem, 3.4vw, 1.9rem);
+  letter-spacing: 0.24em;
+  margin: 0 0 1.4rem;
+}
+
+.rsvp-subtitle {
+  font-style: italic;
+  font-weight: 300;
+  margin: 0 0 3rem;
+}
+
+#rsvp-form { text-align: left; }
+
+.field { margin-bottom: 1.8rem; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.field label,
+.field-choice legend {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink);
+  padding: 0.35em 0.1em;
+  border-radius: 0;
+}
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--ink);
+}
+.field textarea { resize: vertical; }
+
+.field-choice {
+  border: none;
+  padding: 0;
+  margin: 0 0 1.8rem;
+}
+
+.choices { display: flex; gap: 1rem; }
+
+.chip input { position: absolute; opacity: 0; }
+
+.chip span {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  padding: 0.7em 1.9em 0.7em calc(1.9em + 0.28em);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+.chip input:focus-visible + span {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.btn-confirm {
+  display: block;
+  margin: 2.6rem auto 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 0.78rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--dark);
+  border: 1px solid var(--dark);
+  padding: 1em 3em 1em calc(3em + 0.32em);
+  cursor: pointer;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+.btn-confirm:hover,
+.btn-confirm:focus-visible {
+  background: transparent;
+  color: var(--ink);
+}
+
+.rsvp-note {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.05rem;
+  margin-top: 1.6rem;
+}
+
+/* ── Closing quote ────────────────────────────────────────────── */
+
+.quote {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 7rem;
+}
+.quote p {
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+
+.footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 3rem 1.5rem 3.5rem;
+}
+.footer p { margin: 0.3rem 0; }
+.footer-names {
+  font-family: var(--font-script);
+  font-size: 2rem;
+}
+.footer-date {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.footer-demo {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  margin-top: 1.2rem;
+}
+
+/* ── Mobile ───────────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+  section { padding: 4rem 1.25rem; }
+
+  /* The countdown doesn't fit on one row: switch to a 2x2 grid */
+  .countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1rem;
+    max-width: 20rem;
+    margin: 0 auto;
+  }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+
+  .hero { padding-bottom: 3rem; }
+
+  /* On narrow screens the names stack on three lines, with the "&"
+     centered: avoids it being left stranded at the end of the first line. */
+  .hero-names .amp {
+    display: block;
+    font-size: 1.6rem;
+    margin: 0.25em 0;
+    top: 0;
+  }
+}
+
+/* ── Accessibility: less motion if the system asks for it ──────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .monogram, .hero-names { animation: none; }
+  .scroll-hint span { animation: none; }
+}

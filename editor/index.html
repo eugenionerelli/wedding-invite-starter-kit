@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Local editor — Emma &amp; James</title>
+<link rel="stylesheet" href="node_modules/grapesjs/dist/css/grapes.min.css">
+<style>
+  html, body { margin: 0; height: 100%; font-family: -apple-system, sans-serif; }
+  #bar {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 0.6rem 1rem; background: #24262b; color: #ddd;
+    font-size: 0.85rem; position: sticky; top: 0; z-index: 100;
+  }
+  #bar strong { color: #fff; }
+  #save {
+    background: #4b7bec; color: #fff; border: none; border-radius: 4px;
+    padding: 0.5rem 1.1rem; font-size: 0.85rem; cursor: pointer;
+  }
+  #save:hover { background: #3867d6; }
+  #save:disabled { opacity: 0.6; cursor: wait; }
+  #status { flex: 1; }
+  #status.ok { color: #7bed9f; }
+  #status.error { color: #ff7675; }
+  #status.warning { color: #ffd479; }
+  #gjs { height: calc(100vh - 42px); }
+</style>
+</head>
+<body>
+
+  <div id="bar">
+    <strong>Local editor</strong>
+    <span>— edit the site, then save. Publishing stays a separate step.</span>
+    <span id="status"></span>
+    <button id="save">Save to project</button>
+  </div>
+
+  <div id="gjs"></div>
+
+  <script src="node_modules/grapesjs/dist/grapes.min.js"></script>
+  <script src="node_modules/grapesjs-preset-webpage/dist/index.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "wedding-invite-local-editor",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local visual editor (GrapesJS) for the wedding invite site — no account, no cloud.",
+  "dependencies": {
+    "grapesjs": "^0.22.16",
+    "grapesjs-preset-webpage": "^1.0.3"
+  }
+}

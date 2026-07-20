@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       WEDDING INVITE — STARTER KIT
+       Placeholder names and content. Photos: Unsplash (free license).
+       Search for "CUSTOMIZE" comments to find what to change.
+       ═══════════════════════════════════════════════════════════════ -->
+
+  <!-- CUSTOMIZE: title and description (shown on Google and in link previews) -->
+  <title>Emma &amp; James · 17 June 2028</title>
+  <meta name="description" content="We're getting married! Saturday 17 June 2028, Ashbourne. All the details and RSVP.">
+
+  <!-- A wedding invite site usually should NOT show up on Google: this line hides it from search engines. Remove it if you want the opposite. -->
+  <meta name="robots" content="noindex">
+
+  <!-- Preview shown when you share the link (WhatsApp, Telegram, iMessage) -->
+  <meta property="og:title" content="Emma & James — 17 June 2028">
+  <meta property="og:description" content="We're getting married! All the details and RSVP.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=70">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f6f4ef'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='%23161616'%3EE·J%3C/text%3E%3C/svg%3E">
+
+  <!-- Free fonts from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Julius+Sans+One&family=Karla:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Written by the local editor (editor/): don't edit by hand, it layers on top of style.css -->
+  <link rel="stylesheet" href="css/edited.css">
+</head>
+<body>
+
+  <!-- ═══════════ COVER ═══════════ -->
+  <header class="hero">
+    <!-- CUSTOMIZE: your monogram initials -->
+    <div class="monogram" aria-hidden="true">
+      <span class="mono-a">E</span><span class="mono-b">J</span>
+    </div>
+
+    <div class="hero-names">
+      <!-- CUSTOMIZE: your names -->
+      <h1>Emma <span class="amp">&amp;</span> James</h1>
+      <!-- CUSTOMIZE: the date -->
+      <p class="hero-date">17 . 06 . 2028</p>
+    </div>
+
+    <a class="scroll-hint" href="#story" aria-label="Scroll to see the details">
+      <span></span>
+    </a>
+  </header>
+
+  <main>
+
+    <!-- ═══════════ OUR STORY ═══════════ -->
+    <section class="story reveal" id="story">
+      <!-- CUSTOMIZE: your story -->
+      <p>
+        It started by chance, on a rainy afternoon and an umbrella lent to
+        the wrong person — or maybe the right one. From that day, every road
+        we walked together brought us a little closer, through laughter,
+        travels, and slow Sunday mornings.
+      </p>
+      <p>
+        After many years side by side, with hearts full of gratitude, we
+        want to share with you the most important moment of our journey
+      </p>
+      <p class="story-claim">— the beginning of our "forever."</p>
+    </section>
+
+    <!-- ═══════════ COUNTDOWN ═══════════ -->
+    <section class="countdown reveal" aria-label="Countdown to the wedding">
+      <h2 class="script-title">not long now...</h2>
+      <div class="countdown-grid" id="countdown">
+        <div class="cd-box"><span class="cd-num" id="cd-days">–</span><span class="cd-label">Days</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-hours">–</span><span class="cd-label">Hours</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-minutes">–</span><span class="cd-label">Minutes</span></div>
+        <div class="cd-box"><span class="cd-num" id="cd-seconds">–</span><span class="cd-label">Seconds</span></div>
+      </div>
+    </section>
+
+    <!-- ═══════════ SCHEDULE ═══════════ -->
+    <section class="schedule" id="schedule">
+      <h2 class="script-title reveal">our day...</h2>
+
+      <!-- CUSTOMIZE: for each event, change the time, name, venue, address
+           and Google Maps link. To get the link: search the venue on
+           https://maps.google.com → Share → Copy link, and paste it in href.
+           This format always works too:
+           https://www.google.com/maps/search/?api=1&query=VENUE+NAME+CITY -->
+
+      <article class="event reveal">
+        <p class="event-time">15:00</p>
+        <h3 class="event-name">Guest Arrival</h3>
+        <p class="event-venue">The Garden Pavilion</p>
+        <p class="event-address">12 Orchard Lane, Ashbourne</p>
+        <a class="btn-location" href="https://www.google.com/maps/search/?api=1&query=Kew+Gardens+London" target="_blank" rel="noopener">Show location</a>
+      </article>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <article class="event reveal">
+        <p class="event-time">16:00</p>
+        <h3 class="event-name">Ceremony</h3>
+        <p class="event-venue">St. Mary's Chapel</p>
+        <p class="event-address">Church Street, Ashbourne</p>
+        <a class="btn-location" href="https://www.google.com/maps/search/?api=1&query=Kew+Gardens+London" target="_blank" rel="noopener">Show location</a>
+      </article>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <article class="event reveal">
+        <p class="event-time">18:30</p>
+        <h3 class="event-name">Reception</h3>
+        <p class="event-venue">The Garden Pavilion</p>
+        <p class="event-address">12 Orchard Lane, Ashbourne</p>
+        <a class="btn-location" href="https://www.google.com/maps/search/?api=1&query=Kew+Gardens+London" target="_blank" rel="noopener">Show location</a>
+      </article>
+
+      <p class="dress-code reveal">Dress code · <em>black tie</em></p>
+    </section>
+
+    <!-- ═══════════ GALLERY ═══════════ -->
+    <section class="gallery reveal" id="gallery">
+      <h2 class="script-title">our moments...</h2>
+      <!-- CUSTOMIZE: replace these with your own photos.
+           Put the files in assets/img/ and use src="assets/img/photo-name.jpg".
+           These are Unsplash photos (free license), used as placeholders. -->
+      <div class="gallery-grid">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=70" alt="The couple holding hands" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=70" alt="Walking in the rain" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1000&q=70" alt="Party sparklers" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1000&q=70" alt="The couple's exit" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=70" alt="The reception table" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=70" alt="Hands intertwined" loading="lazy">
+      </div>
+      <p class="gallery-credit">Placeholder photos · Unsplash</p>
+    </section>
+
+    <!-- ═══════════ RSVP ═══════════ -->
+    <section class="rsvp reveal" id="rsvp">
+      <h2 class="rsvp-title">Confirm your attendance</h2>
+      <!-- CUSTOMIZE: the RSVP deadline -->
+      <p class="rsvp-subtitle">
+        Please confirm by 17 May 2028 —
+        and join us for a day of celebration, music, and joy!
+      </p>
+
+      <!-- This form is "static": on submit it opens the guest's email app
+           with the message already written. See the README for
+           alternatives (Formspree, Tally, Google Form) to receive
+           responses automatically. -->
+      <form id="rsvp-form" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <fieldset class="field-choice">
+          <legend>Will you be joining us?</legend>
+          <div class="choices">
+            <label class="chip"><input type="radio" name="attending" value="Yes" checked><span>Yes</span></label>
+            <label class="chip"><input type="radio" name="attending" value="No"><span>No</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="guests">Number of guests with me</label>
+          <input type="number" id="guests" name="guests" min="0" max="10" value="0">
+        </div>
+
+        <div class="field">
+          <label for="guest-names">Names of guests with me</label>
+          <input type="text" id="guest-names" name="guest-names" placeholder="">
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn-confirm">Confirm</button>
+        <p class="rsvp-note" id="rsvp-note" hidden></p>
+      </form>
+    </section>
+
+    <!-- ═══════════ QUOTE ═══════════ -->
+    <section class="quote reveal">
+      <p>"And then choosing each other, every day,<br>as if for the first time."</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p class="footer-names">Emma &amp; James</p>
+    <p class="footer-date">17 . 06 . 2028 · Ashbourne</p>
+    <p class="footer-demo">Starter kit — placeholder names, Unsplash photos</p>
+  </footer>
+
+  <!-- Lightbox for the gallery -->
+  <dialog id="lightbox" aria-label="Enlarged photo">
+    <img src="" alt="">
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
